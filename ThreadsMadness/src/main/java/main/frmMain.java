@@ -12,7 +12,7 @@ public class frmMain extends javax.swing.JFrame {
     
     String[][] sala_cine = new String[3][5]; // sala de cine con 5 asientos en cada fila
     int filas_llenas; // contador de filas que se van llenando
-    int asientos_ocupados = 0; // contador de posiciones para la fila A
+    int asientos_ocupados = 0; // contador de posiciones para los asientos de una fila
 
     /**
      * Creates new form frmMain
@@ -40,7 +40,6 @@ public class frmMain extends javax.swing.JFrame {
             System.out.println("Proceso " + this.nombre + " iniciado. Tengo Q " + this.dinero);
             // Antes de escoger asiento debe comprar lo que pueda con el dinero que tenga
             // La entrada cuesta Q 48, los poporopos Q 30 y los dulces Q 5
-            // Región crítica
             sala_cine[filas_llenas][asientos_ocupados] = this.nombre;
             String fila = switch (filas_llenas) {
                 case 0 -> "A";
@@ -50,6 +49,7 @@ public class frmMain extends javax.swing.JFrame {
             this.asiento_obtenido = "Fila " + fila + " Asiento " + String.valueOf(asientos_ocupados + 1);
             asientos_ocupados++;
             // el cliente debe indicarle al portero que asiento tiene
+            // también debe mostrar cuanto le quedo de dinero para el próximo estreno
             System.out.println(this.nombre + " finalizado con status: 0");
         }
     }
